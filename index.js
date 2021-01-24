@@ -6,13 +6,9 @@ const prefix = process.env.PREFIX;
 
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setStatus("available");
-    client.user.setPresence({
-        game: {
-            name: "with depression",
-            type: "STREAMING",
-            url: "https://www.twitch.tv/monstercat",
-        },
+    client.user.setActivity("some stuff", {
+        type: "STREAMING",
+        url: "https://www.twitch.tv/just_fero_",
     });
 });
 
