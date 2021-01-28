@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
+const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION']});
 require("dotenv").config();
 
 // Command Prefix
@@ -7,9 +7,14 @@ const prefix = process.env.PREFIX;
 // Get Twticha api token
 const getToken = require("./functions/getToken");
 const getStream = require("./functions/getStream");
+const getMembers = require("./functions/getMembers");
+
+// Reactions
+const rulesReaction = require("./reactions/rules");
 
 const welcomeEmbed = require("./embeds/welcome");
 const leaveEmbed = require("./embeds/leave");
+const rulesEmbed = require("./embeds/rules");
 const request = require("request");
 
 var accessToken = "";
@@ -38,15 +43,21 @@ client.on("ready", () => {
 welcomeEmbed(client, "803701548269043712");
 leaveEmbed(client, "803701548269043712");
 
+
+rulesReaction(client, "804275307162107974")
+
 client.on("message", (message) => {
+    if(!message.guild) return;
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (command === "ping") {
-        message.channel.send("D");
+    if (command === "reaction") {
+        rulesEmbed(client, "804275307162107974");
+
     }
 });
+
 
 client.login(process.env.CLIENT_TOKEN);

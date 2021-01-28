@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const getMembers = require("../functions/getMembers");
 module.exports = (client, channelID) => {
     client.on("guildMemberAdd", (member) => {
         const welcomeMessage = new Discord.MessageEmbed()
@@ -16,6 +17,10 @@ module.exports = (client, channelID) => {
                     member.displayName +
                     "**."
             )
+            .addField(
+                "\u200B",
+                "> There are currently **" + getMembers(client) + "** happy people on our server."
+            )
             .setImage(member.user.displayAvatarURL)
             .setTimestamp()
             .setFooter(
@@ -23,7 +28,7 @@ module.exports = (client, channelID) => {
             );
 
         member.guild.channels.cache.get(channelID).send(welcomeMessage).then(welcomeMessage => {
-            welcomeMessage.react("👍");
+            welcomeMessage.react("👋");
         })
         
     });
