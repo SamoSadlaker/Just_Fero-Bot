@@ -9,7 +9,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
   if(reaction.message.channel.id === channelID){
       if(reaction.emoji.name === "✅"){
-          await reaction.message.guild.members.cache.get(user.id).roles.add("804333549717028945");
+          await reaction.message.guild.members.cache.get(user.id).roles.add("804618361257459732");
           // console.log("reaction");
       }
       
@@ -22,7 +22,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
 
   if(reaction.message.channel.id === channelID){
       if(reaction.emoji.name === "✅"){
-          await reaction.message.guild.members.cache.get(user.id).roles.remove("804333549717028945");
+          await reaction.message.guild.members.cache.get(user.id).roles.remove("804618361257459732");
           // console.log("reaction");
       }
       

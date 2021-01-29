@@ -40,11 +40,11 @@ client.on("ready", () => {
     client.user.setActivity("command !help", { type: "LISTENING" });
 });
 
-welcomeEmbed(client, "803701548269043712");
-leaveEmbed(client, "803701548269043712");
+welcomeEmbed(client, "804619074603712532");
+leaveEmbed(client, "804619074603712532");
 
 
-rulesReaction(client, "804275307162107974")
+rulesReaction(client, "804619932947710022")
 
 client.on("message", (message) => {
     if(!message.guild) return;
@@ -53,10 +53,13 @@ client.on("message", (message) => {
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (command === "reaction") {
-        rulesEmbed(client, "804275307162107974");
-
+    if(message.member.hasPermission("ADMINISTRATOR")){
+        if (command === "rules") {
+            console.log("Admin cast command ?rules")
+            rulesEmbed(client, "804619932947710022");
+        }
     }
+    
 });
 
 

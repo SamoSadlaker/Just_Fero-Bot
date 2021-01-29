@@ -13,15 +13,15 @@ module.exports = (client, channelID) => {
 
             .addField(
                 "Chat rules",
-                "> We were glad you were here with us ."
+                "> No negative comments directed at others. \n > No swearing \n > Listen to mods, they have the same rights and responsibilities as in the chat \n > No racist references / modified links / NSFW links. \n > No invites to foreign discord servers! \n > Behave politely and exemplary!"
             )
             .addField(
                 "Voicerooms rules",
-                "> Now there are only "
+                "> No swearing \n > Work in progress"
             )
             .addField(
               "GDPR",
-              "> Now there are only "
+              "> Work in progress"
           )
             .setFooter(
                 "© " + new Date().getFullYear() + " just_fero's discord server."

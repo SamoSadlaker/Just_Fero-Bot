@@ -11,12 +11,7 @@ module.exports = (client, channelID) => {
                 "https://twitch.tv/just_fero_"
             )
 
-            .addField(
-                "\u200B",
-                "> We were glad you were here with us **" +
-                    member.displayName +
-                    "**."
-            )
+            .setDescription("We were glad you were here with us **" + member.displayName + "**.")
             .addField(
                 "\u200B",
                 "> Now there are only **" + getMembers(client) + "** happy people on our server."

@@ -11,15 +11,10 @@ module.exports = (client, channelID) => {
                 "https://twitch.tv/just_fero_"
             )
 
+            .setDescription("We look forward to seeing you **" + member.displayName + "**.")
             .addField(
                 "\u200B",
-                "> We look forward to seeing you **" +
-                    member.displayName +
-                    "**."
-            )
-            .addField(
-                "\u200B",
-                "> There are currently **" + getMembers(client) + "** happy people on our server."
+                "> There are currently **" + getMembers(client) + "** happy people on our server. \n > If you want join to our community, you must agree our rules. \n > Rules are in channel <#804275307162107974>"
             )
             .setImage(member.user.displayAvatarURL)
             .setTimestamp()
